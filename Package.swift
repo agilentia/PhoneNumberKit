@@ -17,10 +17,7 @@ let package = Package(
                 exclude: ["Resources/Original",
                           "Resources/README.md",
                           "Resources/update_metadata.sh",
-                          "Info.plist"],
-                resources: [
-                    .process("Resources/PhoneNumberMetadata.json")
-                ]),
+                          "Info.plist"]),
         .testTarget(name: "PhoneNumberKitTests",
                     dependencies: ["PhoneNumberKit"],
                     path: "PhoneNumberKitTests",
