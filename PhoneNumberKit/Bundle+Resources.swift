@@ -24,7 +24,7 @@ extension Bundle {
             Bundle(for: CurrentBundleFinder.self).resourceURL?.deletingLastPathComponent()
         ]
         for candidate in candidates {
-            let bundlePath = candidate?.appendingPathComponent(bundleName + ".bundle")
+            let bundlePath = candidate.appendingPathComponent(bundleName + ".bundle")
             if let bundle = bundlePath.flatMap(Bundle.init(url:)) {
                 return bundle
             }
