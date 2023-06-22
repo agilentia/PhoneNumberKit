@@ -11,7 +11,7 @@ extension Bundle {
     static var phoneNumberKit: Bundle = {
         #if DEBUG && SWIFT_PACKAGE
         let bundleName = "PhoneNumberKit_PhoneNumberKit"
-        let candidates = [
+        let candidates: [URL?] = [
             /* Bundle should be present here when the package is linked into an App. */
             Bundle.main.resourceURL,
             /* Bundle should be present here when the package is linked into a framework. */
@@ -24,7 +24,7 @@ extension Bundle {
             Bundle(for: CurrentBundleFinder.self).resourceURL?.deletingLastPathComponent()
         ]
         for candidate in candidates {
-            let bundlePath = candidate.appendingPathComponent(bundleName + ".bundle")
+            let bundlePath = candidate?.appendingPathComponent(bundleName + ".bundle")
             if let bundle = bundlePath.flatMap(Bundle.init(url:)) {
                 return bundle
             }
